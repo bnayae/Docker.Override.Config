@@ -3,7 +3,7 @@ WORKDIR batch-job
 COPY Publish/BatchJob/ .
 RUN dir c:\batch-job
 
-ENTRYPOINT Prepare -proc:BatchJob.exe -create_no_window -env_to_config:sub-dir
+ENTRYPOINT Docker.Override.Config.Windows -proc:BatchJob.exe -create_no_window -env_to_config:sub-dir
 # ENTRYPOINT BatchJob.exe
 
 # docker build -f Dockerfile.batch-job.docker -t batch-job:v2 .

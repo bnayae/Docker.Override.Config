@@ -10,7 +10,7 @@ using System.ServiceModel.Activation;
 using System.Configuration;
 using System;
 
-namespace Bnaya.Samples
+namespace Docker.Tools
 {
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class WcfService : IWcfService

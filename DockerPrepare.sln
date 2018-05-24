@@ -24,9 +24,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfLegacy", "Modules\WcfLeg
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{DC7B8717-87D8-4444-829F-B3D3B6048008}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prepare", "Tools\Prepare\Prepare.csproj", "{1487431C-1C86-4BAB-8CA7-AC48BD42DB11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docker.Override.Config.Windows", "Tools\Prepare\Docker.Override.Config.Windows.csproj", "{1487431C-1C86-4BAB-8CA7-AC48BD42DB11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy On Service Fabric", "Deploy On Service Fabric", "{E92A9577-7479-46A8-AEB4-D55E642FABAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet-Packges", "NuGet-Packges", "{773AE568-0858-413F-B621-1EA131EF4CF0}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet-Packges\Docker.Override.Config.Windows.1.0.0.nupkg = NuGet-Packges\Docker.Override.Config.Windows.1.0.0.nupkg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

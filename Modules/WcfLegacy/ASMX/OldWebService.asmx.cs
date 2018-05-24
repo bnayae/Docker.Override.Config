@@ -6,7 +6,7 @@ using System.Web.Services;
 using System.Web.Services.Description;
 using System.Web.Services.Protocols;
 
-namespace Bnaya.Samples.OldWebServiceServices
+namespace Docker.Tools.OldWebServiceServices
 {
     [WebServiceBinding(ConformsTo = WsiProfiles.None)]
     [WebService(Name = "LegacyWebService", Namespace = "http://www.sample.com/default")]

@@ -13,7 +13,7 @@ using static System.StringComparison;
 
 #pragma warning disable SCS0001 // Command injection possible in {1} argument passed to '{0}'
 
-namespace Bnaya.Samples
+namespace Docker.Tools
 {
     class Program
     {
@@ -30,7 +30,7 @@ namespace Bnaya.Samples
             {
                 if (args?.Length == 0 || args[0].StartsWith("-h", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine(File.ReadAllText("Sample.txt"));
+                    Console.WriteLine(Help);
                     Thread.Sleep(TimeSpan.FromMinutes(3)); // let people chance to read before the docker goes down 
                     return;
                 }
@@ -208,5 +208,33 @@ use-shell-execute: {useShellExecute}");
 
             #endregion // Exception Handling
         }
+
+        private static string Help => @"
+Use the following instructions:
+
+-work_dir:""c:\my site""  
+ for setting the working directory
+
+-proc:powershell
+ the process you want to run
+
+-args:""echo help I need somebody"" 
+ the process arguments
+
+-create_no_window
+ to run the process with: create no window
+
+-use_shell_execute
+ to run the process with: use shell execute
+
+-env_to_config:sub-dir
+ to override configuration with matching environment variables
+ it will override any file which have the.config suffix
+ 'sub-dir' indicate whether to search in sub-folder, the default will search only the current folder
+
+-config_dir:c:\site\bin
+
+Anything after CMD will be concatenate to process's arguments (with leading space).
+";
     }
 }

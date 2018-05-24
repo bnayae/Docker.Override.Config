@@ -17,7 +17,7 @@ COPY Publish/WcfLegacy/ .
 RUN dir c:\WebServiceSite
 RUN dir c:\WebServiceSite\bin
 
-ENTRYPOINT bin\Prepare -proc:"C:\ServiceMonitor.exe" -args:w3svc -work_dir:C:\WebServiceSite -create_no_window -env_to_config:sub-dir
+ENTRYPOINT bin\Docker.Override.Config.Windows -proc:"C:\ServiceMonitor.exe" -args:w3svc -work_dir:C:\WebServiceSite -create_no_window -env_to_config:sub-dir
 
 # docker build -f Dockerfile.wcf-legacy.docker -t wcf-legacy:v2 .
 # docker run -it -p 8112:8111 --name wcf-legacy-v2 --env-file Dockerfile.wcf-legacy.env wcf-legacy:v2

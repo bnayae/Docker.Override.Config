@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Bnaya.Samples.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Docker.Tools.Global" Language="C#" %>

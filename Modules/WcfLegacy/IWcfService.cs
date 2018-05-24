@@ -4,7 +4,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 
 // http://localhost:6549/WcfService.svc/web/getdata/?data=123
-namespace Bnaya.Samples
+namespace Docker.Tools
 {
     [ServiceContract]
     public interface IWcfService

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bnaya.Samples
+namespace Docker.Tools
 {
     public class Global : System.Web.HttpApplication
     {

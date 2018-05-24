@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Bnaya.Samples.WcfService" CodeBehind="WcfService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Docker.Tools.WcfService" CodeBehind="WcfService.svc.cs" %>
