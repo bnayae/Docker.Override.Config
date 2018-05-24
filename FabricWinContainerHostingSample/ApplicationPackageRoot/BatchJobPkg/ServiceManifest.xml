@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="BatchJobPkg"
+                 Version="1.0.5"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="BatchJobType" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <CodePackage Name="Code" Version="1.0.5">
+    <EntryPoint>
+      <ContainerHost>
+        <ImageName>bnayaregistry.azurecr.io/batch-job:v2</ImageName>
+      </ContainerHost>
+    </EntryPoint>
+    
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="abc" Value="From Environment :)"/>
+      <EnvironmentVariable Name="xyz" Value="From Environment :)"/>
+    </EnvironmentVariables>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.5" />
+
+  <Resources>
+    <!--<Endpoints>
+      <Endpoint Name="BatchJobTypeEndpoint" Port="" />
+    </Endpoints>-->
+  </Resources>
+</ServiceManifest>

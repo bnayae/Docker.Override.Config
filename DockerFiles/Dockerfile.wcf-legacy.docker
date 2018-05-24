@@ -1,0 +1,30 @@
+# install WCF basic docker image
+FROM microsoft/wcf:4.7.1-windowsservercore-ltsc2016
+
+# Next, this Dockerfile creates a directory for your application
+WORKDIR WebServiceSite
+
+# configure the new site in IIS.
+RUN powershell -NoProfile -Command \
+    Import-module IISAdministration; \
+    New-IISSite -Name "WebServiceSite" -PhysicalPath C:\WebServiceSite -BindingInformation "*:8111:"
+
+# This instruction tells the container to listen on a port 
+EXPOSE 8111
+
+# The final instruction copies the site you published earlier into the container.
+COPY Publish/WcfLegacy/ .
+RUN dir c:\WebServiceSite
+RUN dir c:\WebServiceSite\bin
+
+ENTRYPOINT bin\Prepare -proc:"C:\ServiceMonitor.exe" -args:w3svc -work_dir:C:\WebServiceSite -create_no_window -env_to_config:sub-dir
+
+# docker build -f Dockerfile.wcf-legacy.docker -t wcf-legacy:v2 .
+# docker run -it -p 8112:8111 --name wcf-legacy-v2 --env-file Dockerfile.wcf-legacy.env wcf-legacy:v2
+# docker exec -it wcf-legacy-v2
+
+# navigate http://localhost:8112/WcfService.svc/web/GetData/?data=abc
+
+# Postman Post: http://localhost:8112//ASMX/OldWebService.asmx/Send Content-Typs:application/x-www-form-urlencoded body = data=abc
+
+

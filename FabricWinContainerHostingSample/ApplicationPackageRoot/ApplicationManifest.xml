@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="FabricWinContainerHostingSampleType"
+                     ApplicationTypeVersion="1.0.5"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="BatchJob_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="WcfLegacy_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="BatchJobPkg" ServiceManifestVersion="1.0.5" />
+    <ConfigOverrides />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="registry-name" Password="registry-pass" PasswordEncrypted="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+                    RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="WcfLegacyPkg" ServiceManifestVersion="1.0.5" />
+    <ConfigOverrides />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="registry-name" Password="registry-pass" PasswordEncrypted="false" />
+        <PortBinding ContainerPort="8111" EndpointRef="WcfLegacyTypeEndpoint" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+                    RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="BatchJob" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="BatchJobType" InstanceCount="[BatchJob_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="WcfLegacy" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="WcfLegacyType" InstanceCount="[WcfLegacy_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>

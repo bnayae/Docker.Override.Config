@@ -1,0 +1,12 @@
+FROM microsoft/windowsservercore:ltsc2016
+WORKDIR batch-job
+COPY Publish/BatchJob/ .
+RUN dir c:\batch-job
+
+ENTRYPOINT Prepare -proc:BatchJob.exe -create_no_window -env_to_config:sub-dir
+# ENTRYPOINT BatchJob.exe
+
+# docker build -f Dockerfile.batch-job.docker -t batch-job:v2 .
+# docker run -it --name batch-job-v2 --env-file Dockerfile.batch-job.env batch-job:v2
+# docker exec -it batch-job-v2
+
