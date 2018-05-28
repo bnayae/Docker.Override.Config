@@ -90,7 +90,7 @@ namespace Docker.Tools
                             var adds = cnf?.Element("configuration")
                                           ?.Element("appSettings")
                                           ?.Elements()
-                                          ?.Where(m => m.Name == "add") ?? Array.Empty<XElement>();
+                                          ?.Where(m => m.Name == "add") ?? new XElement[0];
                             foreach (var add in adds)
                             {
                                 string name = add.Attribute("key").Value;
@@ -110,7 +110,7 @@ namespace Docker.Tools
                             var conns = cnf?.Element("configuration")
                                          ?.Element("connectionStrings")
                                          ?.Elements()
-                                         ?.Where(m => m.Name == "add") ?? Array.Empty<XElement>();
+                                         ?.Where(m => m.Name == "add") ?? new XElement[0];
                             foreach (var conn in conns)
                             {
                                 string name = conn.Attribute("name").Value;
