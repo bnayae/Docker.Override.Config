@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet-Packges", "NuGet-Pack
 	ProjectSection(SolutionItems) = preProject
 		NuGet-Packges\Docker.Override.Config.Windows.1.0.0.nupkg = NuGet-Packges\Docker.Override.Config.Windows.1.0.0.nupkg
 		NuGet-Packges\Docker.Override.Config.Windows.1.0.1.nupkg = NuGet-Packges\Docker.Override.Config.Windows.1.0.1.nupkg
+		NuGet-Packges\Docker.Override.Config.Windows.1.0.2.nupkg = NuGet-Packges\Docker.Override.Config.Windows.1.0.2.nupkg
 	EndProjectSection
 EndProject
 Global
